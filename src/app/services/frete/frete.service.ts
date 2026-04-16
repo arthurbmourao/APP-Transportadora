@@ -16,8 +16,20 @@ export class FreteService {
 
   constructor (private http: HttpClient){}
 
+  criarFrete(frete : any):Observable<any>{
+    return this.http.post<any>(this.API,frete);
+  }
+
+  fretePorId(freteId : number):Observable<any>{
+    return this.http.get<any>(`${this.API}/${freteId}`)
+  }
+
   listarTodos(): Observable<any[]>{
     return this.http.get<any[]> (this.API);
+  }
+
+  atualizarFrete(freteId:number, novoFrete : any): Observable<any>{
+    return this.http.put<any>(`${this.API}/${freteId}`,novoFrete);
   }
 
 }

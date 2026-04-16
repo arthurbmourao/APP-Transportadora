@@ -1,19 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-    
-  </header>
-  <aside>
+<div class="flex flex-row min-h-screen">
+  
+  <aside class="w-1/4 bg-gradient-to-b from-blue-500 to-blue-800 p-4 min-h-screen">
+    <section id="secao-admin" class="flex flex-col border-y-2 py-5 gap-y-2">
+      <div class="flex flex-row items-center mb-2">
+        <img class="w-16" src="../assets/icone-pessoa.png" alt="">
+        <h3 class="text-2xl lg:text-3xl text-white">Processos Admin</h3>
+      </div>
+      
+      <a class="text-xl text-white pl-2 hover:underline hover:text-black" routerLink="/admin-listar">Listar Todos Admins</a>
+      <a class="text-xl text-white pl-2 hover:underline hover:text-black" routerLink="/admin-cadastrar">Cadastrar Admin</a>
+      </section>
+      <section id="secao-admin" class="flex flex-col border-y-2 py-5 gap-y-2">
+        <div class="flex flex-row items-center mb-2 gap-2">
+          <img class="w-16" src="../assets/imagem-caminhao.png" alt="">
+          <h3 class="text-2xl lg:text-3xl text-white">Processos Admin</h3>
+        </div>
+
+        <a class="text-xl text-white pl-2 hover:underline hover:text-black" routerLink="/caminhoneiro-listar">Listar Todos Caminhoneiros</a>
+        <a class="text-xl text-white pl-2 hover:underline hover:text-black" routerLink="/caminhoneiro-cadastrar">Cadastrar Caminhoneiro</a>
+      </section>
 
   </aside>
-  <main>
 
-  </main>
-</body>
-</html>
+  <div class="flex flex-col w-full bg-gray-50">
+    
+    <header class="bg-white p-6 shadow-sm">
+      <div class="flex justify-center">
+        <h1 class="text-blue-700 text-5xl font-bold">TransLog</h1>
+      </div>
+    </header>
+
+    <main class="p-8">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>

@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{html,ts}", // Isso diz ao Tailwind para ler seus HTMLs e arquivos TypeScript
   ],
   theme: {
+    fontFamily: {
+      translog:['Ruibik', 'sans-serif']
+    },
     extend: {},
   },
   plugins: [],
