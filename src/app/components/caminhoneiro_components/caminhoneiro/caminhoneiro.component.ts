@@ -8,19 +8,19 @@ import { CaminhoneiroService } from '../../../services/caminhoneiro/caminhoneiro
   templateUrl: './caminhoneiro.component.html',
   styleUrl: './caminhoneiro.component.css'
 })
-export class CaminhoneiroComponent implements OnInit{
-  listaCaminnhoneiros : any[] = [];
+export class CaminhoneiroComponent implements OnInit {
+  listaCaminhoneiros: any[] = [];
 
-  constructor(private service : CaminhoneiroService){}
+  constructor(private service: CaminhoneiroService) {}
 
   ngOnInit(): void {
-    
+    this.carregarCaminhoneiros();
   }
 
-  carregarCaminhoneiros(){
+  carregarCaminhoneiros(): void {
     this.service.listarTodos().subscribe({
-      next: (dados) => this.listaCaminnhoneiros = dados,
-      error: (err) => console.error('Erro ao buscar caminhoneiros', err)
+      next: (dados: any[]) => this.listaCaminhoneiros = dados,
+      error: (err: any) => console.error('Erro ao buscar caminhoneiros', err)
     });
   }
 }

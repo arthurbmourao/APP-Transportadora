@@ -8,6 +8,7 @@ import { AdminService } from '../../../services/admin/admin.service'; // Ajuste 
   imports: [CommonModule],
   templateUrl: './admin.component.html'
 })
+
 export class AdminComponent implements OnInit {
   listaAdmins: any[] = [];
 
@@ -17,10 +18,10 @@ export class AdminComponent implements OnInit {
     this.carregarAdmins();
   }
 
-  carregarAdmins() {
+  carregarAdmins(): void {
     this.service.listarTodos().subscribe({
-      next: (dados) => this.listaAdmins = dados,
-      error: (err) => console.error('Erro ao buscar admins', err)
+      next: (dados: any[]) => this.listaAdmins = dados,
+      error: (err: any) => console.error('Erro ao buscar admins', err)
     });
   }
 }

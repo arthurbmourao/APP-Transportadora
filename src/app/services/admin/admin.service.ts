@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  private readonly API = ('http://localhost:8080/admin')
+  private readonly API = 'http://localhost:8080/admin';
 
-  constructor(private http : HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
-  listarTodos():Observable<any[]>{
+  listarTodos(): Observable<any[]> {
     return this.http.get<any[]>(this.API);
+  }
+
+  cadastro(admin: any): Observable<any> {
+    return this.http.post<any>(this.API, admin);
   }
 }

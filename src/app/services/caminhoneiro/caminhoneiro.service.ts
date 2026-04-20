@@ -13,8 +13,8 @@ export class CaminhoneiroService {
 
   constructor(private http: HttpClient) {}
 
-  listarTodos():Observable<any[]>{
-    return this.http.get<any[]>(this.API)
+  listarTodos(): Observable<any[]> {
+    return this.http.get<any[]>(this.API);
   }
 
 }

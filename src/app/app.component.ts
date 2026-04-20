@@ -11,20 +11,22 @@ import { FreteService } from './services/frete/frete.service';
   styleUrl: './app.component.css'
 })
 
-export class AppComponent implements OnInit{
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
+export class AppComponent implements OnInit {
+  title = 'APP-Transportadora';
 
   listaDeFretes: any[] = [];
 
-  constructor (private service: FreteService){}
+  constructor(private service: FreteService) {}
 
   ngOnInit(): void {
-    this.service.listarTodos().subscribe(dados =>{
-      this.listaDeFretes = dados;
-      console.log(this.listaDeFretes);
-    })
+    this.service.listarTodos().subscribe({
+      next: (dados: any[]) => {
+        this.listaDeFretes = dados;
+        console.log(this.listaDeFretes);
+      },
+      error: (err: any) => {
+        console.error('Erro ao buscar fretes', err);
+      }
+    });
   }
-  
 }

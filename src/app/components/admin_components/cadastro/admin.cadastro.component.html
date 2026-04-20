@@ -1,0 +1,29 @@
+<div class="bg-white rounded-lg shadow-md  w-[32rem] mx-auto pb-24">
+    <div class="bg-blue-900 h-16 flex items-center justify-center w-full ">
+        <h2 class="text-2xl text-white">Cadastrar administrador</h2>
+    </div>
+    
+    <div class=" mt-8  flex justify-center" >
+        <form class="flex flex-col  gap-y-4" (ngSubmit)="cadastrar()" action="">
+            <div class="flex flex-col gap-2">
+                <label class="" for="">NOME:</label>
+                <input class="input-formulario" type="text" name="nome" [(ngModel)] = "admin.nome" placeholder="Matheus Pereira">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="">E-MAIL</label>
+                <input class="input-formulario" type="text" name="email" [(ngModel)] = "admin.email" placeholder="seu@email.com">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="">SENHA</label>
+                <input class="input-formulario " type="password" name="senha" [(ngModel)]="admin.senha" placeholder=". . . . . . . ." >
+            </div>
+            <div class="flex flex-col pb-7 gap-2">
+                <label class="">CONFIRME SUA SENHA</label>
+                <input class="input-formulario" type="password" name="confirmar" [(ngModel)]="confirmarSenha" placeholder=". . . . . . . .">
+            </div>
+           <div class="pl-4">
+                 <button type="submit" class="botao-principal " >Salvar Admin</button>
+           </div>
+        </form>
+     </div>
+</div>
