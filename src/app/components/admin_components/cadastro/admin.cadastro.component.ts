@@ -15,7 +15,7 @@ export class AdminComponentCadastro implements OnInit {
   admin: { nome: string; email: string; senha: string } = {
     nome: '',
     email: '',
-    senha: ''
+    senha: '',
   };
 
   confirmarSenha: string = '';
@@ -26,8 +26,6 @@ export class AdminComponentCadastro implements OnInit {
     
   }
   
-
-
   cadastrar(): void {
 
     if(this.admin.senha !== this.confirmarSenha){
@@ -41,7 +39,7 @@ export class AdminComponentCadastro implements OnInit {
         this.admin = {
           nome: '',
           email: '',
-          senha: ''
+          senha: '',
         };
       },
       error: (err: any) => {

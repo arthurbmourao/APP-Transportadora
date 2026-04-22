@@ -18,4 +18,8 @@ export class AdminService {
   cadastro(admin: any): Observable<any> {
     return this.http.post<any>(this.API, admin);
   }
+
+  atualizar(admin: any, id: number): Observable<any>{
+    return this.http.put(`${this.API}/${id}`, admin, {responseType: 'text'})
+  }
 }
