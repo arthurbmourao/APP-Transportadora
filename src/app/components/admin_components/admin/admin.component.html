@@ -19,8 +19,8 @@
             <td class="py-3 px-6 text-left">{{ admin.nome }}</td>
             <td class="py-3 px-6 text-left">{{ admin.email }}</td>
             <td class="py-3 px-6 text-center">
-              <button class="bg-yellow-500 text-white px-3 py-1 rounded mr-2 hover:bg-yellow-800" (click) = "abrirPopUp(admin)">Atualizar</button>
-              <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-800">Excluir</button>
+              <button class="bg-yellow-500 text-white px-3 py-1 rounded mr-2 hover:bg-yellow-800" (click) = "abrirPopUpAtualizar(admin)">Atualizar</button>
+              <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-800" (click) = abrirPopUpDeletar(admin)>Excluir</button>
             </td>
           </tr>
         } @empty {
@@ -35,7 +35,7 @@
   </div>
 </div>
 
-@if(mostrarPopUp){
+@if(mostrarPopUpAtualizar){
   <div class=" fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
     <div class="bg-white shadow-xl w-[30vw] h-2/5  min-w-[350px] flex flex-col overflow-hidden rounded-lg">
       <h2 class="bg-blue-800 w-full text-white text-center py-3 text-2xl font-semibold">Atualizar Administrador</h2>
@@ -49,10 +49,25 @@
               <input class="input-formulario" type="text" name="email" [(ngModel)] = "adminEdicao.email" placeholder="seu@email.com">
           </div>
           <div class="flex flex-row gap-3 pt-5">
-               <button (click) = "confirmarAcao()" class="botao-principal ">Atualizar Admin</button>
-               <button (click) = "fecharPopUp()" class="botao-secundario">Fechar</button>
+               <button (click) = "confirmarAcaoAtualizar()" class="botao-principal ">Atualizar Admin</button>
+               <button (click) = "fecharPopUpAtualizar()" class="botao-secundario">Fechar</button>
           </div>
         </div>
+      </div>
+  </div>
+}
+
+@if(mostrarPopUpDeletar){
+  <div class=" fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+    <div class="bg-white shadow-xl w-[30vw] h-2/5  min-w-[350px] flex flex-col overflow-hidden rounded-lg " >
+      <h2 class="bg-blue-800 w-full text-white text-center py-3 text-2xl font-semibold">Deletar Administrador</h2>
+          <div class="flex flex-col gap-y-3 my-auto mx-auto">
+              <p class="text-center text-xl font-semi-bold">Tem certeza que deseja deletar o administrador</p>
+              <div class="flex flex-row gap-3">
+                <button (click) = "confirmarAcaoDeletar()" class="botao-principal ">Deletar</button>
+                <button (click) = "fecharPopUpDeletar()" class="botao-secundario">Fechar</button>
+              </div>
+          </div>
       </div>
   </div>
 }

@@ -11,9 +11,11 @@ import { AdminService } from '../../../services/admin/admin.service'; // Ajuste 
 })
 
 export class AdminComponent implements OnInit {
-  mostrarPopUp = false;
-  idAdminAtualizar: number | null= null;
+  idAdmin: number | null= null;
+  mostrarPopUpAtualizar = false;
+  mostrarPopUpDeletar = false;
   adminEdicao = { nome: '', email: '', senha:'' };
+  adminDeletar = { nome: '', email: '', senha:'' };
 
   listaAdmins: any[] = [];
 
@@ -30,34 +32,63 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  abrirPopUp(admin: any){
-    this.idAdminAtualizar = admin.id;
+  abrirPopUpAtualizar(admin: any){
+    this.idAdmin = admin.id;
     this.adminEdicao = { 
       nome: admin.nome, 
       email: admin.email, 
       senha: ''
     };
-    this.mostrarPopUp = true;
+    this.mostrarPopUpAtualizar = true;
   }
 
-  fecharPopUp(){
-    this.mostrarPopUp = false;
-    this.idAdminAtualizar = null;
+  abrirPopUpDeletar(admin: any): void{
+    this.idAdmin = admin.id;
+    this.adminDeletar = {
+      nome : admin.nome,
+      email : admin.email,
+      senha : admin.senha
+    }
+    this.mostrarPopUpDeletar = true
   }
 
-  confirmarAcao() {
-  if (this.idAdminAtualizar) {
-    this.service.atualizar(this.adminEdicao, this.idAdminAtualizar).subscribe({
+  fecharPopUpAtualizar(){
+    this.mostrarPopUpAtualizar = false;
+    this.idAdmin = null;
+  }
+
+  fecharPopUpDeletar(){
+    this.mostrarPopUpDeletar = false;
+    this.idAdmin = null;
+  }
+
+  confirmarAcaoAtualizar() {
+  if (this.idAdmin) {
+    this.service.atualizar(this.adminEdicao, this.idAdmin).subscribe({
       next: () => {
         console.log('ATUALIZAÇÃO FEITA')
         this.carregarAdmins(); 
-        this.fecharPopUp();
+        this.fecharPopUpAtualizar();
       },
       error: (err) => console.error(err)
     });
     
   }
 }
+
+  confirmarAcaoDeletar(){
+    if(this.idAdmin){
+      this.service.deletar(this.idAdmin).subscribe({
+        next: () =>{
+          this.carregarAdmins();
+          this.fecharPopUpDeletar();
+        },
+        error: (err) => console.log(err)
+      });
+    }
+  }
+
+
 
 
 

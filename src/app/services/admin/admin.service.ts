@@ -22,4 +22,8 @@ export class AdminService {
   atualizar(admin: any, id: number): Observable<any>{
     return this.http.put(`${this.API}/${id}`, admin, {responseType: 'text'})
   }
+
+  deletar(id:number):Observable<any>{
+    return this.http.delete(`${this.API}/${id}`,{responseType : 'text'});
+  }
 }
