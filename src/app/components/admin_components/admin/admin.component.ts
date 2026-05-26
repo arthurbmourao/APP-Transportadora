@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { AdminService } from '../../../services/admin/admin.service'; // Ajuste o caminho se necessário
+import {Admin} from '../../../types/Admin';
 
 @Component({
   selector: 'app-admin',
@@ -17,7 +18,7 @@ export class AdminComponent implements OnInit {
   adminEdicao = { nome: '', email: '', senha:'' };
   adminDeletar = { nome: '', email: '', senha:'' };
 
-  listaAdmins: any[] = [];
+  listaAdmins: Admin[] = [];
 
   constructor(private service: AdminService) {}
 
@@ -27,7 +28,7 @@ export class AdminComponent implements OnInit {
 
   carregarAdmins(): void {
     this.service.listarTodos().subscribe({
-      next: (dados: any[]) => this.listaAdmins = dados,
+      next: (dados: Admin[]) => this.listaAdmins = dados,
       error: (err: any) => console.error('Erro ao buscar admins', err)
     });
   }
@@ -87,9 +88,4 @@ export class AdminComponent implements OnInit {
       });
     }
   }
-
-
-
-
-
 }

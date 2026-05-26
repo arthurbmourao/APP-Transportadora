@@ -27,7 +27,6 @@ export class AdminComponentCadastro implements OnInit {
   }
   
   cadastrar(): void {
-
     if(this.admin.senha !== this.confirmarSenha){
       alert('Senhas devem ser iguais');
       return;
