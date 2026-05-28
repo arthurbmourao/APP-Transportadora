@@ -20,5 +20,17 @@ export class CaminhoneiroService {
   listarTodos(): Observable<Caminhoneiro[]> {
     return this.http.get<Caminhoneiro[]>(this.API);
   }
+
+  cadastrar(caminhoneiro : Caminhoneiro): Observable<Caminhoneiro>{
+    return this.http.post<Caminhoneiro>(this.API, caminhoneiro)
+  }
+
+  atualizar(caminhoneiro : Caminhoneiro, id : number): Observable<Caminhoneiro>{
+    return this.http.put<Caminhoneiro>(`${this.API}/${id}`,caminhoneiro)
+  }
+
+  deletar(id : number):Observable<String>{
+    return this.http.delete(`${this.API}/${id}`,{responseType : 'text'});
+  }
   
 }

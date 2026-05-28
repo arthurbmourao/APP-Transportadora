@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { AdminComponent } from '../app/components/admin_components/admin/admin.component'; 
 import { AdminComponentCadastro } from '../app/components/admin_components/cadastro/admin.cadastro.component';
-import { CaminhoneiroComponent } from '../app/components/caminhoneiro_components/caminhoneiro/caminhoneiro.component';
+import { CaminhoneiroComponent } from './components/caminhoneiro_components/caminhoneiro/caminhoneiro.component';
 
 export const routes: Routes = [
     

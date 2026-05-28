@@ -15,8 +15,8 @@ export class AdminComponent implements OnInit {
   idAdmin: number | null= null;
   mostrarPopUpAtualizar = false;
   mostrarPopUpDeletar = false;
-  adminEdicao = { nome: '', email: '', senha:'' };
-  adminDeletar = { nome: '', email: '', senha:'' };
+  adminEdicao: Admin = { id: 0, nome: '', email: '', senha: '' };
+  adminDeletar: Admin = { id: 0, nome: '', email: '', senha: '' };
 
   listaAdmins: Admin[] = [];
 
@@ -33,9 +33,10 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  abrirPopUpAtualizar(admin: any){
-    this.idAdmin = admin.id;
+  abrirPopUpAtualizar(admin: Admin): void{
+    this.idAdmin = admin.id ?? null;
     this.adminEdicao = { 
+      id : admin.id,
       nome: admin.nome, 
       email: admin.email, 
       senha: ''
@@ -43,8 +44,8 @@ export class AdminComponent implements OnInit {
     this.mostrarPopUpAtualizar = true;
   }
 
-  abrirPopUpDeletar(admin: any): void{
-    this.idAdmin = admin.id;
+  abrirPopUpDeletar(admin: Admin): void{
+    this.idAdmin = admin.id ?? null;
     this.adminDeletar = {
       nome : admin.nome,
       email : admin.email,

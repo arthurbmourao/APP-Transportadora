@@ -1,9 +1,9 @@
 export interface Frete{
     id : number,
     valor : number,
-    status : String,
-    origem : String,
-    destino : String,
+    status : string,
+    origem : string,
+    destino : string,
     idCaminhoneiro : number,
     idAdmin : number
 }
