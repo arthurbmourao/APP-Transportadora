@@ -1,1 +1,44 @@
-<p>frete works!</p>
+
+<div class="bg-white rounded-lg shadow-md p-6">
+  <h2 class="text-3xl font-bold text-blue-800 mb-6">Lista de Fretes</h2>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200">
+      <thead>
+        <tr class="bg-blue-800 text-white uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">ID</th>
+          <th class="py-3 px-6 text-left">Origem</th>
+          <th class="py-3 px-6 text-left">Destino</th>
+          <th class="py-3 px-6 text-left">Valor</th>
+          <th class="py-3 px-6 text-left">Status</th>
+          <th class="py-3 px-6 text-left">Caminhoneiro</th>
+          <th class="py-3 px-6 text-left">Admin</th>
+          <th class="py-3 px-6 text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        @for (frete of listaFretes; track frete.id) {
+          <tr class="border-b border-gray-200 hover:bg-gray-50">
+            <td class="py-3 px-6 text-left">{{ frete.id }}</td>
+            <td class="py-3 px-6 text-left">{{ frete.origem }}</td>
+            <td class="py-3 px-6 text-left">{{ frete.destino }}</td>
+            <td class="py-3 px-6 text-left">{{ frete.valor }}</td>
+            <td class="py-3 px-6 text-left">{{ frete.status }}</td>
+            <td class="py-3 px-6 text-left">{{ frete.nomeCaminhoneiro }}</td>
+            <td class="py-3 px-6 text-left">{{ frete.nomeAdmin }}</td>
+            <td class="py-3 px-6 text-center">
+              <button class="bg-yellow-500 text-white px-3 py-1 rounded mr-2 hover:bg-yellow-800" >Atualizar</button>
+              <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-800">Excluir</button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4" class="py-10 text-center mx-auto text-gray-500 italic">
+              Nenhum frete encontrado.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

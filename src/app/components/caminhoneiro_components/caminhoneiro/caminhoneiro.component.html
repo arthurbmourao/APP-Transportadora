@@ -22,8 +22,8 @@
             <td class="py-3 px-6 text-left">{{ caminhoneiro.cnh }}</td>
             <td class="py-3 px-6 text-left">{{ caminhoneiro.placaVeiculo }}</td>
             <td class="py-3 px-6 text-center">
-              <button class="bg-yellow-500 text-white px-3 py-1 rounded mr-2 hover:bg-yellow-800" >Atualizar</button>
-              <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-800" >Excluir</button>
+              <button class="bg-yellow-500 text-white px-3 py-1 rounded mr-2 hover:bg-yellow-800" (click) = "abrirPopUpAtualizar(caminhoneiro)" >Atualizar</button>
+              <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-800" (click) = "abrirPopUpDeletar(caminhoneiro)" >Excluir</button>
             </td>
           </tr>
         } @empty {
@@ -38,18 +38,26 @@
   </div>
 </div>
 
-<!-- @if(mostrarPopUpAtualizar){
+@if(mostrarPopUpAtualizar){
   <div class=" fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-    <div class="bg-white shadow-xl w-[30vw] h-2/5  min-w-[350px] flex flex-col overflow-hidden rounded-lg">
+    <div class="bg-white shadow-xl w-[30vw] min-w-[350px] h-auto pb-6 flex flex-col rounded-lg">
       <h2 class="bg-blue-800 w-full text-white text-center py-3 text-2xl font-semibold">Atualizar Caminhoneiro</h2>
         <div class="pt-12 flex items-start gap-9 justify-center flex-col mx-auto">
           <div class="flex flex-col gap-2">
-              <label class="" for="">NOME:</label>
-              <input class="input-formulario" type="text" name="nome" [(ngModel)] = "adminEdicao.nome" placeholder="Matheus Pereira">
+              <label class="font-semibold" for="">NOME:</label>
+              <input class="input-formulario" type="text" name="nome" [(ngModel)] = "caminhoneiroEdicao.nome" placeholder="Matheus Pereira">
           </div>
           <div class="flex flex-col gap-2">
-              <label class="">E-MAIL</label>
-              <input class="input-formulario" type="text" name="email" [(ngModel)] = "adminEdicao.email" placeholder="seu@email.com">
+              <label class="font-semibold">CPF</label>
+              <input class="input-formulario" type="text" name="cpf" [(ngModel)] = "caminhoneiroEdicao.cpf" placeholder="seu@email.com">
+          </div>
+          <div class="flex flex-col gap-2">
+              <label class="font-semibold">CNH</label>
+              <input class="input-formulario" type="text" name="cnh" [(ngModel)] = "caminhoneiroEdicao.cnh" placeholder="seu@email.com">
+          </div>
+          <div class="flex flex-col gap-2">
+              <label class="font-semibold">PLACA VEICULO</label>
+              <input class="input-formulario" type="text" name="placaVeiculo" [(ngModel)] = "caminhoneiroEdicao.placaVeiculo" placeholder="seu@email.com">
           </div>
           <div class="flex flex-row gap-3 pt-5">
                <button (click) = "confirmarAcaoAtualizar()" class="botao-principal ">Atualizar Caminhoneiro</button>
@@ -63,9 +71,9 @@
 @if(mostrarPopUpDeletar){
   <div class=" fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
     <div class="bg-white shadow-xl w-[30vw] h-2/5  min-w-[350px] flex flex-col overflow-hidden rounded-lg " >
-      <h2 class="bg-blue-800 w-full text-white text-center py-3 text-2xl font-semibold">Deletar Administrador</h2>
+      <h2 class="bg-blue-800 w-full text-white text-center py-3 text-2xl font-semibold">Deletar Caminhoneiro</h2>
           <div class="flex flex-col gap-y-3 my-auto mx-auto">
-              <p class="text-center text-xl font-semi-bold">Tem certeza que deseja deletar o administrador</p>
+              <p class="text-center text-xl font-semi-bold">Tem certeza que deseja deletar o {{caminhoneiroDeletar.nome}}</p>
               <div class="flex flex-row gap-3">
                 <button (click) = "confirmarAcaoDeletar()" class="botao-principal ">Deletar</button>
                 <button (click) = "fecharPopUpDeletar()" class="botao-secundario">Fechar</button>
@@ -73,4 +81,4 @@
           </div>
       </div>
   </div>
-} -->
+}

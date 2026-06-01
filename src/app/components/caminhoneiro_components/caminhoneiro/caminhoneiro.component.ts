@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CaminhoneiroService } from '../../../services/caminhoneiro/caminhoneiro.service';
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from '@angular/common';
 import { Caminhoneiro } from '../../../types/Caminhoneiro';
 
 @Component({
   selector: 'app-caminhoneiro',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './caminhoneiro.component.html',
   styleUrl: './caminhoneiro.component.css'
 })
@@ -57,6 +59,7 @@ export class CaminhoneiroComponent implements OnInit {
       cnh : caminhoneiro.cnh,
       placaVeiculo : caminhoneiro.placaVeiculo
     }
+    this.mostrarPopUpDeletar = true;
   }
 
   fecharPopUpDeletar(): void{
@@ -64,10 +67,31 @@ export class CaminhoneiroComponent implements OnInit {
     this.idCaminhoneiro = null;
   }
 
-  //confirmarAcaoAtualizar(){
-  //  if(this.idCaminhoneiro){
-  //    this.service.atualizar(this.a)
-  //  }
-  //}
+  confirmarAcaoAtualizar(){
+    if(this.idCaminhoneiro){
+      this.service.atualizar(this.caminhoneiroEdicao,this.idCaminhoneiro).subscribe({
+        next: () =>{
+          console.log('Atualização Feita')
+          this.carregarCaminhoneiros(),
+          this.fecharPopUpAtualizar()
+        },
+        error : (err) => console.log(err) 
+          
+      });
+    }
+  }
+
+  confirmarAcaoDeletar(){
+    if(this.idCaminhoneiro){
+      this.service.deletar(this.idCaminhoneiro).subscribe({
+        next: () =>{
+          console.log('Caminhoneiro Deletada')
+          this.carregarCaminhoneiros();
+          this.fecharPopUpDeletar()
+        },
+        error: (err) => console.log(err)
+      });
+    }
+  }
 
 }

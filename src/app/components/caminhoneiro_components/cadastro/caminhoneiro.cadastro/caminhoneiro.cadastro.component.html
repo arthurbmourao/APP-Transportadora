@@ -1,0 +1,29 @@
+<div class="bg-white rounded-lg shadow-md  w-[32rem] mx-auto pb-24">
+    <div class="bg-blue-900 h-16 flex items-center justify-center w-full ">
+        <h2 class="text-2xl text-white">Cadastrar caminhoneiro</h2>
+    </div>
+    
+    <div class=" mt-8  flex justify-center" >
+        <form class="flex flex-col  gap-y-4" (ngSubmit)="cadastrar()" action="">
+            <div class="flex flex-col gap-2">
+                <label class="" for="">NOME:</label>
+                <input class="input-formulario" type="text" name="nome" [(ngModel)] = "caminhoneiro.nome" placeholder="Matheus Pereira">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="">CPF</label>
+                <input class="input-formulario" type="text" name="cpf" [(ngModel)] = "caminhoneiro.cpf" placeholder="123.456.789-10">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="">CNH</label>
+                <input class="input-formulario" type="text" name="cnh" [(ngModel)] = "caminhoneiro.cnh" placeholder="0000012345">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="">PLACA DO VEICULO</label>
+                <input class="input-formulario" type="text" name="cpf" [(ngModel)] = "caminhoneiro.placaVeiculo" placeholder="0000012345">
+            </div>
+           <div class="pl-4">
+                 <button type="submit" class="botao-principal " >Salvar Caminhoneiro</button>
+           </div>
+        </form>
+     </div>
+</div>

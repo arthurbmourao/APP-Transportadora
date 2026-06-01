@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
+import { Frete } from '../../types/Frete';
+
 
 
 @Injectable({
@@ -18,18 +20,25 @@ export class FreteService {
 
   constructor (private http: HttpClient){}
 
-  criarFrete(frete: any): Observable<any> {
-    return this.http.post<any>(this.API, frete);
+  cadastrar(frete: Frete): Observable<Frete> {
+    return this.http.post<Frete>(this.API, frete);
   }
 
-  fretePorId(freteId: number): Observable<any> {
-    return this.http.get<any>(`${this.API}/${freteId}`);
+  fretePorId(freteId: number): Observable<Frete> {
+    return this.http.get<Frete>(`${this.API}/${freteId}`);
   }
 
-  listarTodos(): Observable<any[]> {
-    return this.http.get<any[]>(this.API);
+  listarTodos(): Observable<Frete[]> {
+    return this.http.get<Frete[]>(this.API);
   }
 
+  atualizar(frete : Frete, id : number) : Observable<String>{
+    return this.http.put(`${this.API}/${id}`, frete, {responseType: 'text'})
+  }
+
+  deletar(id : number) : Observable<String>{
+    return this.http.delete(`${this.API}/${id}`, {responseType : 'text'})
+  }
 }
   
 
