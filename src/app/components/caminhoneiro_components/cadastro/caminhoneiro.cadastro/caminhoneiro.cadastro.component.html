@@ -11,7 +11,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <label class="">CPF</label>
-                <input class="input-formulario" type="text" name="cpf" [(ngModel)] = "caminhoneiro.cpf" placeholder="123.456.789-10">
+                <input class="input-formulario" type="text" name="cpf" mask="000.000.000-00" [(ngModel)] = "caminhoneiro.cpf" placeholder="123.456.789-10">
             </div>
             <div class="flex flex-col gap-2">
                 <label class="">CNH</label>
@@ -19,7 +19,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <label class="">PLACA DO VEICULO</label>
-                <input class="input-formulario" type="text" name="cpf" [(ngModel)] = "caminhoneiro.placaVeiculo" placeholder="0000012345">
+                <input class="input-formulario" type="text" name="placaVeiculo"  [(ngModel)] = "caminhoneiro.placaVeiculo" placeholder="0000012345">
             </div>
            <div class="pl-4">
                  <button type="submit" class="botao-principal " >Salvar Caminhoneiro</button>

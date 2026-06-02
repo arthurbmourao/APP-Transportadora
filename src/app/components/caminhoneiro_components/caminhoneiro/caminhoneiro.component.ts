@@ -3,11 +3,13 @@ import { CaminhoneiroService } from '../../../services/caminhoneiro/caminhoneiro
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { Caminhoneiro } from '../../../types/Caminhoneiro';
+import { NgxMaskDirective } from 'ngx-mask';
+import { CpfPipe } from '../../../pipes/cpf.pipe';
 
 @Component({
   selector: 'app-caminhoneiro',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgxMaskDirective, CpfPipe],
   templateUrl: './caminhoneiro.component.html',
   styleUrl: './caminhoneiro.component.css'
 })
