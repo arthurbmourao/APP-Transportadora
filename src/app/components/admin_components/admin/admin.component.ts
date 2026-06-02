@@ -12,6 +12,9 @@ import {Admin} from '../../../types/Admin';
 })
 
 export class AdminComponent implements OnInit {
+  listarTodos() {
+    throw new Error('Method not implemented.');
+  }
   idAdmin: number | null= null;
   mostrarPopUpAtualizar = false;
   mostrarPopUpDeletar = false;

@@ -21,8 +21,6 @@ export class CaminhoneiroCadastroComponent {
       placaVeiculo : ''
   }
 
-  confirmarSenha : string = ''
-
   constructor(private service: CaminhoneiroService) {}
   
     ngOnInit(): void {

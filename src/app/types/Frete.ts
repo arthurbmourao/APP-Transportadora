@@ -1,5 +1,5 @@
 export interface Frete{
-    id : number,
+    id? : number,
     valor : number,
     status : string,
     origem : string,
