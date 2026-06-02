@@ -15,14 +15,14 @@ import { Admin } from '../../../../types/Admin';
   styleUrl: './frete.cadastro.component.css'
 })
 export class FreteCadastroComponent {
-    frete : {origem : string; destino: string; valor : number; status : string, nomeCaminhoneiro : string, nomeAdmin : string} = {
-        origem : '',
-        destino : '',
-        valor : 0,
-        status : '',
-        nomeCaminhoneiro : '',
-        nomeAdmin : ''
-    }
+    frete: any = {
+      origem: '',
+      destino: '',
+      valor: 0,
+      status: '',
+      caminhoneiro: { id: null },
+      admin: { id: null }
+    };
     listaCaminhoneiros: any[] = [];
     listaAdmins: Admin[] = [];
   
@@ -38,6 +38,7 @@ export class FreteCadastroComponent {
       }
 
       cadastrar() : void{
+        console.log("Dados que vão para o Back-end:", this.frete);
         this.service.cadastrar(this.frete).subscribe({
           next: (res: any) =>{
             alert('Frete cadastrado com sucesso')
