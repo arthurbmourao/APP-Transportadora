@@ -1,62 +1,64 @@
-<div class="bg-blue-900 h-16 flex items-center justify-center w-full ">
-    <h2 class="text-2xl text-white">Cadastrar Frete</h2>
-</div>
+<div class="bg-white rounded-lg shadow-md  w-[32rem] mx-auto pb-24">
+    <div class="bg-blue-900 h-16 flex items-center justify-center mx-auto ">
+        <h2 class="text-2xl text-white">Cadastrar Frete</h2>
+    </div>
 
-<div class=" mt-8  flex justify-center" >
-    <form class="flex flex-col  gap-y-4" (ngSubmit)="cadastrar()" action="">
-        <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide" for="">Origem:</label>
-            <input class="input-formulario" type="text" name="origem" [(ngModel)] = "frete.origem" placeholder="Xique Xique - BA">
-        </div>
-        <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Destino</label>
-            <input class="input-formulario" type="text" name="destino" [(ngModel)] = "frete.destino" placeholder="Juazeiro - BA">
-        </div>
+    <div class=" mt-8  flex justify-center" >
+        <form class="flex flex-col  gap-y-4" (ngSubmit)="cadastrar()" action="">
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide" for="">Origem:</label>
+                <input class="input-formulario" type="text" name="origem" [(ngModel)] = "frete.origem" placeholder="Xique Xique - BA">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Destino</label>
+                <input class="input-formulario" type="text" name="destino" [(ngModel)] = "frete.destino" placeholder="Juazeiro - BA">
+            </div>
 
-        <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Status</label>
-        <select name="status" id="caminhoneiro" [(ngModel)]="frete.status"
-        class="w-full px-3 py-2 bg-white border border-blue-900 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800/20 focus:border-blue-800 transition-all cursor-pointer text-sm h-10">
+            <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Status</label>
+            <select name="status" id="caminhoneiro" [(ngModel)]="frete.status"
+            class="w-full px-3 py-2 bg-white border border-blue-900 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800/20 focus:border-blue-800 transition-all cursor-pointer text-sm h-10">
 
-        <option value="" disabled selected class="text-gray-400">Selecione um Status</option>
-            <option value="PENDENTE" class="text-gray-700 py-2">PENDENTE</option>
-            <option value="EM_ANDAMENTO" class="text-gray-700 py-2">EM ANDAMENTO</option>
-            <option value="ENTREGUE" class="text-gray-700 py-2">ENTREGUE</option>
-    </select>
-        <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Valor</label>
-            <input class="input-formulario" type="number" name="valor"  [(ngModel)] = "frete.valor" placeholder="0000012345">
-        </div>
-        <div class="flex flex-col gap-2">
-    <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Caminhoneiro</label>
-    <select name="caminhoneiro" id="caminhoneiro" [(ngModel)]="frete.caminhoneiro.id"
-        class="w-full px-3 py-2 bg-white border border-blue-900 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800/20 focus:border-blue-800 transition-all cursor-pointer text-sm h-10">
-        
-        <option [ngValue]="null" disabled selected class="text-gray-400">Selecione um motorista</option>
-        
-        @for(caminhoneiro of listaCaminhoneiros; track caminhoneiro.id){
-            <option [ngValue]="caminhoneiro.id" class="text-gray-700 py-2">
-                {{caminhoneiro.id}} | {{caminhoneiro.nome}}
-            </option>
-        }
-    </select>
-</div>
+            <option value="" disabled selected class="text-gray-400">Selecione um Status</option>
+                <option value="PENDENTE" class="text-gray-700 py-2">PENDENTE</option>
+                <option value="EM_ANDAMENTO" class="text-gray-700 py-2">EM ANDAMENTO</option>
+                <option value="ENTREGUE" class="text-gray-700 py-2">ENTREGUE</option>
+        </select>
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Valor</label>
+                <input class="input-formulario" type="number" name="valor"  [(ngModel)] = "frete.valor" placeholder="0000012345">
+            </div>
+            <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Caminhoneiro</label>
+        <select name="caminhoneiro" id="caminhoneiro" [(ngModel)]="frete.caminhoneiro.id"
+            class="w-full px-3 py-2 bg-white border border-blue-900 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800/20 focus:border-blue-800 transition-all cursor-pointer text-sm h-10">
+            
+            <option [ngValue]="null" disabled selected class="text-gray-400">Selecione um motorista</option>
+            
+            @for(caminhoneiro of listaCaminhoneiros; track caminhoneiro.id){
+                <option [ngValue]="caminhoneiro.id" class="text-gray-700 py-2">
+                    {{caminhoneiro.id}} | {{caminhoneiro.nome}}
+                </option>
+            }
+        </select>
+    </div>
 
-<div class="flex flex-col gap-2 mt-2">
-    <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Administrador Responsável</label>
-    <select name="admin" id="admin" [(ngModel)]="frete.admin.id"
-        class="w-full px-3 py-2 bg-white border border-blue-900 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800/20 focus:border-blue-800 transition-all cursor-pointer text-sm h-10">
-        
-        <option [ngValue]="null" disabled selected class="text-gray-400">Selecione um administrador</option>
-        
-        @for(admin of listaAdmins; track admin.id){
-            <option [ngValue]="admin.id" class="text-gray-700 py-2">
-                {{admin.id}} | {{admin.nome}}
-            </option>
-        }
-    </select>
-</div>
-       <div class="pl-4">
-             <button type="submit"  class="botao-principal ">Salvar Frete</button>
-       </div>
-    </form>
+    <div class="flex flex-col gap-2 mt-2">
+        <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Administrador Responsável</label>
+        <select name="admin" id="admin" [(ngModel)]="frete.admin.id"
+            class="w-full px-3 py-2 bg-white border border-blue-900 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800/20 focus:border-blue-800 transition-all cursor-pointer text-sm h-10">
+
+            <option [ngValue]="null" disabled selected class="text-gray-400">Selecione um administrador</option>
+
+            @for(admin of listaAdmins; track admin.id){
+                <option [ngValue]="admin.id" class="text-gray-700 py-2">
+                    {{admin.id}} | {{admin.nome}}
+                </option>
+            }
+        </select>
+    </div>
+           <div class="pl-4 pt-7">
+                 <button type="submit"  class="botao-principal ">Salvar Frete</button>
+           </div>
+        </form>
+     </div>
  </div>
