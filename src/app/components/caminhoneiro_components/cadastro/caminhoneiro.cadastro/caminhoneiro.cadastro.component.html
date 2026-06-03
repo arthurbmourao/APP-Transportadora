@@ -6,19 +6,19 @@
     <div class=" mt-8  flex justify-center" >
         <form class="flex flex-col  gap-y-4" (ngSubmit)="cadastrar()" action="">
             <div class="flex flex-col gap-2">
-                <label class="" for="">NOME:</label>
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide" for="">NOME:</label>
                 <input class="input-formulario" type="text" name="nome" [(ngModel)] = "caminhoneiro.nome" placeholder="Matheus Pereira">
             </div>
             <div class="flex flex-col gap-2">
-                <label class="">CPF</label>
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">CPF</label>
                 <input class="input-formulario" type="text" name="cpf" mask="000.000.000-00" [(ngModel)] = "caminhoneiro.cpf" placeholder="123.456.789-10">
             </div>
             <div class="flex flex-col gap-2">
-                <label class="">CNH</label>
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">CNH</label>
                 <input class="input-formulario" type="text" mask="000000000" name="cnh" [(ngModel)] = "caminhoneiro.cnh" placeholder="0000012345">
             </div>
             <div class="flex flex-col gap-2">
-                <label class="">PLACA DO VEICULO</label>
+                <label class="text-sm font-semibold text-gray-700 uppercase tracking-wide">PLACA DO VEICULO</label>
                 <input class="input-formulario" type="text" name="placaVeiculo"  [(ngModel)] = "caminhoneiro.placaVeiculo" placeholder="0000012345">
             </div>
            <div class="pl-4">
